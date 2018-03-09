@@ -4,7 +4,7 @@ from __future__ import print_function
 import os
 
 from oauth2client import tools, client
-from oauth2client.client import Storage
+from oauth2client.file import Storage
 
 
 class Authentication:
