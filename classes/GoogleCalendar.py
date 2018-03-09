@@ -1,4 +1,5 @@
 import datetime
+from tokenize import String
 
 import httplib2
 from apiclient import discovery
@@ -17,12 +18,26 @@ class GoogleCalendar:
 
     def getLastNEvents(self, n):
         now = datetime.datetime.utcnow().isoformat() + 'Z'  # 'Z' indicates UTC time
-        message = f"Getting the upcoming {n} events"
-        print(message)
+        print(f"Getting the upcoming {n} events")
         eventsResult = self.service.events().list(
             calendarId='primary', timeMin=now, maxResults=n, singleEvents=True,
             orderBy='startTime').execute()
         self.events = eventsResult.get('items', [])
+
+    def getEventsFromDateToDate(self, dateFrom, dateTo):
+        dateFrom = self.cleanStringDate(dateFrom)
+        dateTo = self.cleanStringDate(dateTo)
+
+        print(f"Getting the upcoming events between {dateFrom} and {dateTo}")
+        eventsResult = self.service.events().list(
+            calendarId='primary', timeMin=dateFrom, timeMax=dateTo, maxResults=1000, singleEvents=True,
+            orderBy='startTime').execute()
+        self.events = eventsResult.get('items', [])
+
+    def cleanStringDate(self, date):
+        if type(date) is str:
+            date = datetime.datetime.strptime(date, '%Y-%m-%d').isoformat() + 'Z'
+        return date
 
     def printEvents(self):
         if not self.events:
