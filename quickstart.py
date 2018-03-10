@@ -23,8 +23,8 @@ def main():
     dateTo = '2018-03-10'
     print(dateFrom, dateTo)
 
-    googleCalendar.getEventsFromDateToDate(dateFrom, dateTo)
-    googleCalendar.printEvents()
+    events = googleCalendar.getEventsFromDateToDate(dateFrom, dateTo)
+    googleCalendar.printEvents(events)
 
 if __name__ == '__main__':
     main()

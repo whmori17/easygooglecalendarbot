@@ -26,14 +26,6 @@ class Authentication:
         self.credentialPath = os.path.join(self.credentialDir, 'calendar-python-quickstart.json')
 
     def getCredentials(self, myClient):
-        """Gets valid user credentials from storage.
-
-        If nothing has been stored, or if the stored credentials are invalid,
-        the OAuth2 flow is completed to obtain the new credentials.
-
-        Returns:
-            Credentials, the obtained credential.
-        """
         store = Storage(self.credentialPath)
         credentials = store.get()
         if not credentials or credentials.invalid:
