@@ -23,3 +23,12 @@ Il bot permette anche di:
 * Scaricare il csv degli eventi di un periodo specifico
 * Scaricare l’ics di un evento specifico
 * Scaricare l’ics di ‘n’ eventi specifici
+
+##Nomi funzioni
+* description - Description of the bot
+* fromtoevents - Get events between from to dates
+* todayevents - Get today events
+* lastnevents - Get the last n events
+* newevent - Create a new event
+* icsofevent - Get the ics file of a event
+* csvevents - Get the csv files of last events
