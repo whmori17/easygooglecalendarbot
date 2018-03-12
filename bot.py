@@ -1,6 +1,7 @@
 from classes.CalendarBot import CalendarBot
 
-token = '556106958:AAG1J8_WwMACUnABnKoFW971NvG964eiTOg'
+file = open('token', 'r')
+token = file.read(file)
 
 calendarBot = CalendarBot(token)
 calendarBot.run()
