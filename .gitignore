@@ -7,3 +7,5 @@ classes/__pycache__/
 client_secret.json
 telepot
 token
+cert.pem
+private.key
