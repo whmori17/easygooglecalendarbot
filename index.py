@@ -6,5 +6,5 @@ Updater.start_webhook(
     url_path='/easygooglecalendarbot/bot.py',
     key='private.key',
     cert='cert.pem',
-    webhook_url='https://18.188.71.226/:8443//easygooglecalendarbot/example.py'
+    webhook_url='https://18.188.71.226/:8443/easygooglecalendarbot/example.py'
 )
