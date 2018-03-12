@@ -6,3 +6,4 @@ classes/__init__.pyc
 classes/__pycache__/
 client_secret.json
 telepot
+bot.py
