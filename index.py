@@ -1,10 +1,9 @@
-from telegram.ext import Updater, CommandHandler
+from flask import Flask
+app = Flask(__name__)
 
-Updater.start_webhook(
-    listen='0.0.0.0',
-    port=8443,
-    url_path='/easygooglecalendarbot/bot.py',
-    key='private.key',
-    cert='cert.pem',
-    webhook_url='https://18.188.71.226:443/easygooglecalendarbot/example.py'
-)
+@app.route("/")
+def hello():
+    return "Hello World!"
+
+if __name__ == "__main__":
+    app.run()
