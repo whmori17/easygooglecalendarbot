@@ -1,14 +1,16 @@
 from pprint import pprint
 
+import os
 import telepot
 from telepot.loop import MessageLoop
 
 
 class CalendarBot:
 
-    def __init__(self, token):
-        self.token = token
-        self.bot = telepot.Bot(token)
+    def __init__(self):
+        file = open(os.getcwd() + '/token', 'r')
+        self.token = file.read()
+        self.bot = telepot.Bot(self.token)
 
     def run(self):
         MessageLoop(self.bot, self.handle).run_as_thread()
